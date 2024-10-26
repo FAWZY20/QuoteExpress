@@ -12,6 +12,51 @@
     margin-bottom: 5%;
 }
 
+.list-pub{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloc-pub{
+  margin-bottom: 4%;
+}
+
+.pub{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2%;
+    margin: 1%;
+    box-shadow: 1px 1px 5px #555;
+}
+
+
+.description{
+    margin-top: 13px;
+    margin-bottom: 8%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.pub:hover {
+    background-color: #e0e0e0; /* Couleur de fond au survol */
+}
+
+.pub a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.pub-prix{
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .table-head {
     background-color: #E7E6E6;
 }

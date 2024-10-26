@@ -13,6 +13,39 @@
                         Vous pouvez récupérer ensuite votre devis en Word sans laisser vos coordonnées ou recevoir une
                         version par email si vous souhaitez enregistrer une copie.</p>
                 </div>
+                <div class="bloc-pub container">
+                    <div class="list-pub">
+                        <div class="col-2 pub">
+                            <a href="https://amzn.to/3YpsSVA" target="_blank">
+                                <img src="../../../assets/photos/imprimente.png" height="80" alt="imprimente">
+                                <p class="description">EPSON Expression Home XP-2200</p>
+                                <br/>
+                                <p class="pub-prix">56,59 €</p>
+                            </a>
+                        </div>
+                        <div class="col-2 pub">
+                            <a href="https://amzn.to/3NHxRw8" target="_blank">
+                                <img src="../../../assets/photos/scanner.png" height="80"  alt="imprimente">
+                                <p class="description" >Brother DS-740D Scanner Portable de documents</p>
+                                <p class="pub-prix">118,33 €</p>
+                            </a>
+                        </div>
+                        <div class="col-2 pub">
+                            <a href="https://amzn.to/4fbh14w" target="_blank">
+                                <img src="../../../assets/photos/classeur.png" height="80" alt="imprimente">
+                                <p class="description" >ThinkTex Trieur A4,12 Pochettes Rangement</p>
+                                <p class="pub-prix">12,74 €</p>
+                            </a>
+                        </div>
+                        <div class="col-2 pub">
+                            <a href="https://amzn.to/3YFf5vi" target="_blank">
+                                <img src="../../../assets/photos/tampon.png"  height="80" alt="imprimente">
+                                <p class="description" >Tampon Trodat X-print 4912 encrage automatique</p>
+                                <p class="pub-prix">13,94 €</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="question-bloc">
                     <p class="question-title">Quand faut-il établir un devis ?</p>
                     <p class="question-text">Avant toute acquisition ou commande de service, vos clients cherchent à
@@ -139,7 +172,7 @@
                                     <td>
                                         <div>
                                             <div *ngIf="!donnee.affichage">
-                                                <input type="text" placeholder="TITRE DESCITION" name="titre"
+                                                <input type="text" placeholder="TITRE" name="titre"
                                                     [(ngModel)]="donnee.titre"><br />
                                             </div>
                                             <div *ngIf="donnee.affichage">
@@ -194,7 +227,6 @@
                                     </td>
                                 </tr>
                             </tbody>
-
                         </table>
                         <div class="add-Column">
                             <img src="../../../assets/icon/plus.svg" (click)="addColumn()" class="add-Column-btn"
@@ -330,6 +362,7 @@
                             <img src="../../../assets/icon/download.svg" alt=""> </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
