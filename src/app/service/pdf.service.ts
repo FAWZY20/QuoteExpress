@@ -38,7 +38,7 @@ export class PdfService {
 
   cellWidth = (devis: Devis): any => {
     if (!devis.devisTab.some(item => item.quantiteCell) || !devis.devisTab.some(item => item.uniteCell) || !devis.devisTab.some(item => item.tvaCell)) {
-      return ['35%', '23%', '23%', '23%', '23%']
+      return ['27%', '17%', '17%', '17%', '17%']
     } if (!devis.devisTab.some(item => item.quantiteCell) && !devis.devisTab.some(item => item.uniteCell) ||
       !devis.devisTab.some(item => item.tvaCell) && !devis.devisTab.some(item => item.uniteCell) ||
       !devis.devisTab.some(item => item.quantiteCell) && !devis.devisTab.some(item => item.tvaCell)) {
@@ -46,7 +46,7 @@ export class PdfService {
     } if (!devis.devisTab.some(item => item.quantiteCell) && !devis.devisTab.some(item => item.uniteCell) && !devis.devisTab.some(item => item.tvaCell)) {
       return ['50%', '50%', '50%']
     } else {
-      return ['17%', '17%', '17%', '17%', '17%', '17%']
+      return ['30%', '15%', '15%', '15%', '15%', '15%']
     }
   }
 
