@@ -31,7 +31,7 @@
 .pub {
     display: flex;
     flex-direction: column;
-    padding: 2%;
+    padding: 1.5%;
     margin: 1%;
     box-shadow: 1px 1px 5px #555;
 }
@@ -44,7 +44,7 @@
 .description {
     margin-top: 13px;
     margin-bottom: 8%;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 15px;
 }
 
