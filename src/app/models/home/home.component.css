@@ -12,17 +12,19 @@
     margin-bottom: 5%;
 }
 
-.list-pub {
+.bpub{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .bloc-pub {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 4%;
+    margin-top: 4%;
 }
-
 .bloc-description{
     display: flex;
     flex-direction: column;
@@ -32,7 +34,8 @@
     display: flex;
     flex-direction: column;
     padding: 1.5%;
-    margin: 1%;
+    margin: 0.5%;
+    height: 10vw;
     box-shadow: 1px 1px 5px #555;
 }
 
@@ -154,32 +157,20 @@ p {
     justify-content: center;
 }
 
-@media screen and (max-width: 480px){
-    .pub{
-        height: 55vh;
+@media screen and (max-width: 500px){
+    .img-pub img{
+        height: 70px;
+        width: 70px;
     }
-
+    .pub{
+        height: 35vw !important;
+        margin: 1%;
+        padding: 3%;
+    }
 }
 
-@media screen and (max-width: 1000px) {
 
-    .bloc-pub {
-        overflow: scroll;
-    }
-
-    .pub{
-        justify-content: start;
-        height: 55vh;
-    }
-
-    .list-pub {
-        width: 140%;
-        justify-content: left;
-    }
-
-    .description {
-        font-size: 15px;
-    }
+@media screen and (max-width: 1200px) {
 
     .devis-info,
     .de {
