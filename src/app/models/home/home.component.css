@@ -12,28 +12,36 @@
     margin-bottom: 5%;
 }
 
-.list-pub{
+.list-pub {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.bloc-pub{
-  margin-bottom: 4%;
+.bloc-pub {
+    margin-bottom: 4%;
 }
 
-.pub{
+.bloc-description{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+.pub {
+    display: flex;
+    flex-direction: column;
     padding: 2%;
     margin: 1%;
     box-shadow: 1px 1px 5px #555;
 }
 
+.img-pub {
+    display: flex;
+    justify-content: center;
+}
 
-.description{
+.description {
     margin-top: 13px;
     margin-bottom: 8%;
     font-weight: bold;
@@ -41,10 +49,11 @@
 }
 
 .pub:hover {
-    background-color: #e0e0e0; /* Couleur de fond au survol */
+    background-color: #e0e0e0;
+    /* Couleur de fond au survol */
 }
 
-.pub a{
+.pub a {
     text-decoration: none;
     color: black;
     display: flex;
@@ -52,7 +61,7 @@
 }
 
 
-.pub-prix{
+.pub-prix {
     font-size: 20px;
     font-weight: 500;
 }
@@ -145,7 +154,31 @@ p {
     justify-content: center;
 }
 
+@media screen and (max-width: 480px){
+    .pub{
+        height: 35vh;
+    }
+
+}
+
 @media screen and (max-width: 1000px) {
+
+    .bloc-pub {
+        overflow: scroll;
+    }
+
+    .pub{
+        justify-content: start;
+    }
+
+    .list-pub {
+        width: 180%;
+        justify-content: left;
+    }
+
+    .description {
+        font-size: 15px;
+    }
 
     .devis-info,
     .de {
@@ -270,7 +303,8 @@ p {
     display: grid;
     margin-bottom: 2%;
 }
-.telecharger{
+
+.telecharger {
     margin-top: 3%;
     display: flex;
     flex-direction: column;
