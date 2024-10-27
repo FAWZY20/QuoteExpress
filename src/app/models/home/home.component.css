@@ -156,7 +156,7 @@ p {
 
 @media screen and (max-width: 480px){
     .pub{
-        height: 35vh;
+        height: 55vh;
     }
 
 }
@@ -169,10 +169,11 @@ p {
 
     .pub{
         justify-content: start;
+        height: 55vh;
     }
 
     .list-pub {
-        width: 180%;
+        width: 150%;
         justify-content: left;
     }
 
@@ -186,7 +187,7 @@ p {
     }
 
     .question {
-        padding: 4%;
+        margin: 4%;
     }
 
     .bloc-devis {
