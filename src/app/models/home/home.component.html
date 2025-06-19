@@ -1,401 +1,345 @@
-<div>
-    <div class="">
-        <app-header></app-header>
-    </div>
-    <div class="container ">
-        <div class="row">
-            <div class="question">
-                <div class="question-bloc">
-                    <p class="question-title">Un outil unique de devis gratuit</p>
-                    <p class="question-text"><span style="font-weight: bold;">QuoteExpres a développé un outil unique et
-                            très simple pour générer un devis en quelques clics.</span>Cette interface vous permet de
-                        tout personnaliser (nom de l'entreprise, montant, prestation).
-                        Vous pouvez récupérer ensuite votre devis en Word sans laisser vos coordonnées ou recevoir une
-                        version par email si vous souhaitez enregistrer une copie.</p>
+<div class="">
+    <app-header></app-header>
+</div>
+<div class="container-fluid">
+    <div class="bloc-devis">
+        <div id="devis" class="devis col-lg-8 col-sm-6">
+            <form #devisForm="ngForm">
+                <div class="devis-info col-lg">
+                    <div>
+                        <input type="text" placeholder="votre nom / société" name="nomSociete"
+                            [(ngModel)]="devis.societe" required #societe="ngModel">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Adresse" name="AdresseSociete"
+                            [(ngModel)]="devis.adresseSociete" required #adresseSociete="ngModel">
+                    </div>
+                    <div class="adresse">
+                        <div>
+                            <input type="text" placeholder="Code postal" name="CodePostalSociete"
+                                [(ngModel)]="devis.codePostalSociete" required #codePostalSociete="ngModel">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Ville" name="VilleSociete" [(ngModel)]="devis.villeSociete"
+                                required #villeSociete="ngModel">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Siret">Siret : </label>
+                        <input type="text" id="Siret" placeholder="820 339 265 20365" name="siretSociete"
+                            [(ngModel)]="devis.siretSociete" required #siretSociete="ngModel">
+                    </div>
+                    <div>
+                        <label for="TVA">N° TVA :</label>
+                        <input type="text" id="TVA" placeholder="FR45242563863" name="tvaSociete"
+                            [(ngModel)]="devis.tvaSociete" required #tvaSociete="ngModel">
+                    </div>
+                    <div>
+                        <label for="tel">Tél :</label>
+                        <input type="text" id="tel" placeholder="0142563825" name="numeroSociete"
+                            [(ngModel)]="devis.telSociete" required #telSociete="ngModel">
+                    </div>
                 </div>
-                <div class="question-bloc">
-                    <p class="question-title">Quand faut-il établir un devis ?</p>
-                    <p class="question-text">Avant toute acquisition ou commande de service, vos clients cherchent à
-                        avoir une idée précise du
-                        prix de
-                        votre produit ou service. La divulgation des tarifs est donc essentielle. Ces tarifs seront
-                        ensuite
-                        confirmés via un bon de commande, qui enregistre également les quantités ou mesures, la
-                        disponibilité du
-                        produit, ses caractéristiques, ainsi que les frais de livraison. Bien que le bon de commande ne
-                        soit
-                        pas
-                        obligatoire, il sert de garantie pour prévenir tout litige éventuel.
-                    </p>
-                    <div class="bloc-pub">
-                        <div class="bpub col-12">
-                            <div class="col-lg-3 pub">
-                                <a href="https://amzn.to/3YpsSVA" target="_blank">
-                                    <div class="img-pub">
-                                        <img src="../../../assets/photos/imprimente.png" height="100" width="100"
-                                            alt="imprimente">
-                                    </div>
-                                    <div class="bloc-description">
-                                        <p class="description">EPSON Expression <br /> Home XP-2200</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 pub">
-                                <a href="https://amzn.to/3NHxRw8" target="_blank">
-                                    <div class="img-pub">
-                                        <img src="../../../assets/photos/scanner.png" height="100" width="100"
-                                            alt="imprimente">
-                                    </div>
-                                    <div class="bloc-description">
-                                        <p class="description">Brother DS-740D <br> Scanner Portable</p>
-                                    </div>
-                                </a>
-                            </div>
+                <div class="devis-info-client col-lg">
+                    <div>
+                        <input type="text" placeholder="Nom client" name="nomClient" [(ngModel)]="devis.nomClient"
+                            required #nomClient="ngModel">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Adresse" name="adresseClient" [(ngModel)]="devis.adresseClient"
+                            required #adresseClient="ngModel">
+                    </div>
+                    <div class="adresse">
+                        <div>
+                            <input type="text" placeholder="Code postal" name="CPclient"
+                                [(ngModel)]="devis.codePostalClient" required #codePostalClient="ngModel">
                         </div>
-                        <div class="bpub col-12">
-                            <div class="pub col-lg-3">
-                                <a href="https://amzn.to/4fbh14w" target="_blank">
-                                    <div class="img-pub">
-                                        <img src="../../../assets/photos/classeur.png" height="100" width="100"
-                                            alt="imprimente">
-                                    </div>
-                                    <div class="bloc-description">
-                                        <p class="description">ThinkTex Trieur A4,12 Pochettes Rangement</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="pub col-lg-3">
-                                <a href="https://amzn.to/3YFf5vi" target="_blank">
-                                    <div class="img-pub">
-                                        <img src="../../../assets/photos/tampon.png" height="100" width="100"
-                                            alt="imprimente">
-                                    </div>
-                                    <div class="bloc-description">
-                                        <p class="description">Tampon Trodat X-print 4912 encrage</p>
-                                    </div>
-                                </a>
-                            </div>
+                        <div>
+                            <input type="text" placeholder="Ville" name="villeClient" [(ngModel)]="devis.villeClient"
+                                required #villeClient="ngModel">
                         </div>
                     </div>
-                    <p class="question-bloc">
-                        Dans le cas où le produit ou service que vous proposez est complexe et personnalisé,
-                        l'établissement
-                        d'un
-                        devis devient impératif. Ce dernier détaille les travaux à réaliser, les délais prévus, et
-                        fournit
-                        une
-                        estimation du prix final. En signant le devis avec la mention "Bon pour travaux", vous vous
-                        engagez
-                        formellement en tant que fournisseur. De même, votre client s'engage dès lors qu'il appose sa
-                        signature sur
-                        le devis.
-                    </p>
+                    <div>
+                        <label for="Siret">Siret : </label>
+                        <input type="text" id="Siret" placeholder="820 339 265 20365" name="siretClient"
+                            [(ngModel)]="devis.siretClient" required #siretClient="ngModel">
+                    </div>
+                    <div>
+                        <label for="tel">Tél :</label>
+                        <input type="text" id="tel" placeholder="0142563825" name="telClient"
+                            [(ngModel)]="devis.telClient" required #telClient="ngModel">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="bloc-devis">
-            <div id="devis" class="devis col-lg-8 col-sm-6">
-                <form #devisForm="ngForm">
-                    <div class="devis-info col-lg">
-                        <div>
-                            <input type="text" placeholder="votre nom / société" name="nomSociete"
-                                [(ngModel)]="devis.societe" required #societe="ngModel">
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Adresse" name="AdresseSociete"
-                                [(ngModel)]="devis.adresseSociete" required #adresseSociete="ngModel">
-                        </div>
-                        <div class="adresse">
-                            <div>
-                                <input type="text" placeholder="Code postal" name="CodePostalSociete"
-                                    [(ngModel)]="devis.codePostalSociete" required #codePostalSociete="ngModel">
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Ville" name="VilleSociete"
-                                    [(ngModel)]="devis.villeSociete" required #villeSociete="ngModel">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="Siret">Siret : </label>
-                            <input type="text" id="Siret" placeholder="820 339 265 20365" name="siretSociete"
-                                [(ngModel)]="devis.siretSociete" required #siretSociete="ngModel">
-                        </div>
-                        <div>
-                            <label for="TVA">N° TVA :</label>
-                            <input type="text" id="TVA" placeholder="FR45242563863" name="tvaSociete"
-                                [(ngModel)]="devis.tvaSociete" required #tvaSociete="ngModel">
-                        </div>
-                        <div>
-                            <label for="tel">Tél :</label>
-                            <input type="text" id="tel" placeholder="0142563825" name="numeroSociete"
-                                [(ngModel)]="devis.telSociete" required #telSociete="ngModel">
-                        </div>
+                <div class="date-devis">
+                    <div class="date-devis-bloc date-titre">
+                        <p>Date du devis</p>
                     </div>
-                    <div class="devis-info-client col-lg">
-                        <div>
-                            <input type="text" placeholder="Nom client" name="nomClient" [(ngModel)]="devis.nomClient"
-                                required #nomClient="ngModel">
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Adresse" name="adresseClient"
-                                [(ngModel)]="devis.adresseClient" required #adresseClient="ngModel">
-                        </div>
-                        <div class="adresse">
-                            <div>
-                                <input type="text" placeholder="Code postal" name="CPclient"
-                                    [(ngModel)]="devis.codePostalClient" required #codePostalClient="ngModel">
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Ville" name="villeClient"
-                                    [(ngModel)]="devis.villeClient" required #villeClient="ngModel">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="Siret">Siret : </label>
-                            <input type="text" id="Siret" placeholder="820 339 265 20365" name="siretClient"
-                                [(ngModel)]="devis.siretClient" required #siretClient="ngModel">
-                        </div>
-                        <div>
-                            <label for="tel">Tél :</label>
-                            <input type="text" id="tel" placeholder="0142563825" name="telClient"
-                                [(ngModel)]="devis.telClient" required #telClient="ngModel">
-                        </div>
+                    <div class="date-devis-bloc">
+                        <input size="10" type="text" placeholder="{{ currentDate | date: 'shortDate' }}"
+                            name="dateDevis" [(ngModel)]="devis.dateDevis" required #dateDevis="ngModel">
                     </div>
-                    <div class="date-devis">
-                        <div class="date-devis-bloc date-titre">
-                            <p>Date du devis</p>
-                        </div>
-                        <div class="date-devis-bloc">
-                            <input size="10" type="text" placeholder="{{ currentDate | date: 'shortDate' }}"
-                                name="dateDevis" [(ngModel)]="devis.dateDevis" required #dateDevis="ngModel">
-                        </div>
-                    </div>
-                    <div class="tbl">
-                        <table class="table table-bordered">
-                            <thead class="table-head">
-                                <tr>
-                                    <th scope="col">Description</th>
-                                    <th scope="col" *ngIf="quantite">Quantité</th>
-                                    <th scope="col" *ngIf="unite">Unité</th>
-                                    <th scope="col">Prix unitaire HT</th>
-                                    <th scope="col" *ngIf="tvaLigne">Taux TVA</th>
-                                    <th scope="col">Prix total HT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let donnee of donneeTab; let i = index">
-                                    <td>
-                                        <div>
-                                            <div *ngIf="!donnee.affichage">
-                                                <input type="text" placeholder="TITRE" name="titre"
-                                                    [(ngModel)]="donnee.titre"><br />
-                                            </div>
-                                            <div *ngIf="donnee.affichage">
-                                                {{donnee.titre}}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div *ngIf="!donnee.affichage">
-                                                <input type="text" placeholder="Description presentation"
-                                                    name="description" [(ngModel)]="donnee.description">
-                                            </div>
-                                            <div *ngIf="donnee.affichage">
-                                                {{donnee.description}}
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td *ngIf="quantite">
+                </div>
+                <div class="tbl">
+                    <table class="table table-bordered">
+                        <thead class="table-head">
+                            <tr>
+                                <th scope="col">Description</th>
+                                <th scope="col" *ngIf="quantite">Quantité</th>
+                                <th scope="col" *ngIf="unite">Unité</th>
+                                <th scope="col">Prix unitaire HT</th>
+                                <th scope="col" *ngIf="tvaLigne">Taux TVA</th>
+                                <th scope="col">Prix total HT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let donnee of donneeTab; let i = index">
+                                <td>
+                                    <div>
                                         <div *ngIf="!donnee.affichage">
-                                            <input type="number" name="quantite" [(ngModel)]="donnee.quantite"
-                                                (ngModelChange)="calculPrixTotalHT(donnee)" required
-                                                #quantite="ngModel">
+                                            <input type="text" placeholder="TITRE" name="titre"
+                                                [(ngModel)]="donnee.titre"><br />
                                         </div>
                                         <div *ngIf="donnee.affichage">
-                                            {{donnee.quantite}}
+                                            {{donnee.titre}}
                                         </div>
-                                    </td>
-                                    <td *ngIf="unite">
-                                        <input type="text" name="quantite" placeholder="--" [(ngModel)]="donnee.unite">
-                                    </td>
-                                    <td>
+                                    </div>
+                                    <div>
                                         <div *ngIf="!donnee.affichage">
-                                            <input type="number" name="prixUnitaire" [(ngModel)]="donnee.prixUnitaire"
-                                                (ngModelChange)="calculPrixTotalHT(donnee)" required
-                                                #prixUnitaire="ngModel"> {{uniteValue}}
+                                            <input type="text" placeholder="Description presentation" name="description"
+                                                [(ngModel)]="donnee.description">
                                         </div>
                                         <div *ngIf="donnee.affichage">
-                                            {{donnee.prixUnitaire}} {{uniteValue}}
+                                            {{donnee.description}}
                                         </div>
-                                    </td>
-                                    <td *ngIf="tvaLigne">
-                                        <input type="number" name="tva" [(ngModel)]="donnee.tva" required
-                                            #tva="ngModel">%
-                                    </td>
-                                    <td class="prixTotal">
-                                        <div>
-                                            {{donnee.prixTotal}} {{uniteValue}}
-                                        </div>
-                                        <div>
-                                            <img src="../../../assets/icon/moin.svg" (click)="deleteColumn(donnee.id)"
-                                                class="add-Column-btn no-print" alt="">
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="add-Column">
-                            <img src="../../../assets/icon/plus.svg" (click)="addColumn()" class="add-Column-btn"
-                                alt="">
-                        </div>
+                                    </div>
+                                </td>
+                                <td *ngIf="quantite">
+                                    <div *ngIf="!donnee.affichage">
+                                        <input type="number" name="quantite" [(ngModel)]="donnee.quantite"
+                                            (ngModelChange)="calculPrixTotalHT(donnee)" required #quantite="ngModel">
+                                    </div>
+                                    <div *ngIf="donnee.affichage">
+                                        {{donnee.quantite}}
+                                    </div>
+                                </td>
+                                <td *ngIf="unite">
+                                    <input type="text" name="quantite" placeholder="--" [(ngModel)]="donnee.unite">
+                                </td>
+                                <td>
+                                    <div *ngIf="!donnee.affichage">
+                                        <input type="number" name="prixUnitaire" [(ngModel)]="donnee.prixUnitaire"
+                                            (ngModelChange)="calculPrixTotalHT(donnee)" required
+                                            #prixUnitaire="ngModel"> {{uniteValue}}
+                                    </div>
+                                    <div *ngIf="donnee.affichage">
+                                        {{donnee.prixUnitaire}} {{uniteValue}}
+                                    </div>
+                                </td>
+                                <td *ngIf="tvaLigne">
+                                    <input type="number" name="tva" [(ngModel)]="donnee.tva" required #tva="ngModel">%
+                                </td>
+                                <td class="prixTotal">
+                                    <div>
+                                        {{donnee.prixTotal}} {{uniteValue}}
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/icon/moin.svg" (click)="deleteColumn(donnee.id)"
+                                            class="add-Column-btn no-print" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="add-Column">
+                        <img src="../../../assets/icon/plus.svg" (click)="addColumn()" class="add-Column-btn" alt="">
                     </div>
-                    <div class="total">
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Informations complémentaires (IBAN, BIC...)" name="info"
-                                [(ngModel)]="devis.info" required #info="ngModel">
-                        </div>
-                        <div class="col-lg-6 total-bloc">
-                            <div class="col-lg-6 total-bloc-one">
-                                <div *ngIf="tva">
-                                    <div class="total-bloc-titre">
-                                        <p>Total HT</p>
-                                    </div>
-                                    <div class="total-bloc-titre">
-                                        <div *ngIf="!tvaLigne; then thenBlock else elseBlock"></div>
-                                        <ng-template #thenBlock>TVA ({{tvaTaux}}%)</ng-template>
-                                        <ng-template #elseBlock>Total TVA</ng-template>
-                                    </div>
+                </div>
+                <div class="total">
+                    <div class="col-lg-6">
+                        <input type="text" placeholder="Informations complémentaires (IBAN, BIC...)" name="info"
+                            [(ngModel)]="devis.info" required #info="ngModel">
+                    </div>
+                    <div class="col-lg-6 total-bloc">
+                        <div class="col-lg-6 total-bloc-one">
+                            <div *ngIf="tva">
+                                <div class="total-bloc-titre">
+                                    <p>Total HT</p>
                                 </div>
                                 <div class="total-bloc-titre">
-                                    <p>Total TTC</p>
+                                    <div *ngIf="!tvaLigne; then thenBlock else elseBlock"></div>
+                                    <ng-template #thenBlock>TVA ({{tvaTaux}}%)</ng-template>
+                                    <ng-template #elseBlock>Total TVA</ng-template>
                                 </div>
                             </div>
-                            <div class="col-lg-6 total-bloc-two">
-                                <div *ngIf="tva">
-                                    <div class="total-bloc-prix">
-                                        <p>{{calculPrixTotalDevisHT()}} {{uniteValue}}</p>
-                                    </div>
-                                    <div class="total-bloc-prix">
-                                        <div *ngIf="!tvaLigne; then thenBlock else elseBlock"></div>
-                                        <ng-template #thenBlock>
-                                            <p>{{calculTva()}} {{uniteValue}}</p>
-                                        </ng-template>
-                                        <ng-template #elseBlock>
-                                            <p>{{calculTotalTva()}} {{uniteValue}}</p>
-                                        </ng-template>
-                                    </div>
+                            <div class="total-bloc-titre">
+                                <p>Total TTC</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 total-bloc-two">
+                            <div *ngIf="tva">
+                                <div class="total-bloc-prix">
+                                    <p>{{calculPrixTotalDevisHT()}} {{uniteValue}}</p>
                                 </div>
                                 <div class="total-bloc-prix">
-                                    <p>{{CalculTotalTTC()}} {{uniteValue}}</p>
+                                    <div *ngIf="!tvaLigne; then thenBlock else elseBlock"></div>
+                                    <ng-template #thenBlock>
+                                        <p>{{calculTva()}} {{uniteValue}}</p>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                        <p>{{calculTotalTva()}} {{uniteValue}}</p>
+                                    </ng-template>
                                 </div>
+                            </div>
+                            <div class="total-bloc-prix">
+                                <p>{{CalculTotalTTC()}} {{uniteValue}}</p>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 ">
+            <div class="reglage">
+                <div class="reglage-bloc-title col">
+                    <p class="reglage-title">Réglages</p>
+                </div>
+                <div class="reglage-bloc-btn">
+                    <div class="reglage-bloc">
+                        <div class="col-8">
+                            <p>Activer la TVA</p>
+                        </div>
+                        <div class="col-4 reglage-col">
+                            <button type="button" [ngStyle]="{'background-color': !tva ? '#E6EBF3' : 'white'}"
+                                (click)="deleteTva()" class="reglage-btn btn btn-light">Non</button>
+                            <button type="button" [ngStyle]="{'background-color': tva ? '#E6EBF3' : 'white'}"
+                                (click)="addTva()" class="reglage-btn btn-right btn btn-light">Oui</button>
+                        </div>
+                    </div>
+                    <div *ngIf="tva">
+                        <div class="reglage-bloc">
+                            <div class="col-8">
+                                <p>Taux TVA variable par ligne</p>
+                            </div>
+                            <div class="col-4 reglage-col">
+                                <button type="button" [ngStyle]="{'background-color': !tvaLigne ? '#E6EBF3' : 'white'}"
+                                    (click)="deleteTvaLigne()" class="reglage-btn btn btn-light">Non</button>
+                                <button type="button" [ngStyle]="{'background-color': tvaLigne ? '#E6EBF3' : 'white'}"
+                                    (click)="addTvaLigne()" class="reglage-btn btn-right btn btn-light">Oui</button>
+                            </div>
+                        </div>
+                        <div *ngIf="!tvaLigne" class="reglage-bloc">
+                            <div class="col-8">
+                                <p>Taux TVA</p>
+                            </div>
+                            <div class="col-4 reglage-col">
+                                <input size="10" type="number" placeholder="20" [(ngModel)]="tvaTaux"
+                                    (ngModelChange)="changeTaux($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reglage-bloc">
+                        <div class="col-8">
+                            <p>Activer la colonne "Quantité"</p>
+                        </div>
+                        <div class="col-4 reglage-col">
+                            <button type="button" [ngStyle]="{'background-color': !quantite ? '#E6EBF3' : 'white'}"
+                                (click)="deleteColumQuantite()" class="reglage-btn btn btn-light">Non</button>
+                            <button type="button" [ngStyle]="{'background-color': quantite ? '#E6EBF3' : 'white'}"
+                                (click)="addColumQuantite()" class="reglage-btn btn-right btn btn-light">Oui</button>
+                        </div>
+                    </div>
+                    <div class="reglage-bloc">
+                        <div class="col-8">
+                            <p>Activer la colonne "Unité"</p>
+                        </div>
+                        <div class="col-4 reglage-col">
+                            <button type="button" [ngStyle]="{'background-color': !unite ? '#E6EBF3' : 'white'}"
+                                (click)="deleteColumnUnite()" class="reglage-btn btn btn-light">Non</button>
+                            <button type="button" [ngStyle]="{'background-color':   unite ? '#E6EBF3' : 'white'}"
+                                (click)="addColumnUnite()" class="reglage-btn btn-right btn btn-light">Oui</button>
+                        </div>
+                    </div>
+                    <div class="reglage-bloc">
+                        <div class="col">
+                            <p>Devise</p>
+                        </div>
+                        <div class="col reglage-col">
+                            <input size="10" [(ngModel)]="uniteValue" (ngModelChange)="changeUnitee($event)" type="text"
+                                placeholder="{{uniteValue}}">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 ">
-                <div class="reglage">
-                    <div class="reglage-bloc-title col">
-                        <p class="reglage-title">Réglages</p>
-                    </div>
-                    <div class="reglage-bloc-btn">
-                        <div class="reglage-bloc">
-                            <div class="col-8">
-                                <p>Activer la TVA</p>
-                            </div>
-                            <div class="col-4 reglage-col">
-                                <button type="button" [ngStyle]="{'background-color': !tva ? '#E6EBF3' : 'white'}"
-                                    (click)="deleteTva()" class="reglage-btn btn btn-light">Non</button>
-                                <button type="button" [ngStyle]="{'background-color': tva ? '#E6EBF3' : 'white'}"
-                                    (click)="addTva()" class="reglage-btn btn-right btn btn-light">Oui</button>
-                            </div>
-                        </div>
-                        <div *ngIf="tva">
-                            <div class="reglage-bloc">
-                                <div class="col-8">
-                                    <p>Taux TVA variable par ligne</p>
-                                </div>
-                                <div class="col-4 reglage-col">
-                                    <button type="button"
-                                        [ngStyle]="{'background-color': !tvaLigne ? '#E6EBF3' : 'white'}"
-                                        (click)="deleteTvaLigne()" class="reglage-btn btn btn-light">Non</button>
-                                    <button type="button"
-                                        [ngStyle]="{'background-color': tvaLigne ? '#E6EBF3' : 'white'}"
-                                        (click)="addTvaLigne()" class="reglage-btn btn-right btn btn-light">Oui</button>
-                                </div>
-                            </div>
-                            <div *ngIf="!tvaLigne" class="reglage-bloc">
-                                <div class="col-8">
-                                    <p>Taux TVA</p>
-                                </div>
-                                <div class="col-4 reglage-col">
-                                    <input size="10" type="number" placeholder="20" [(ngModel)]="tvaTaux"
-                                        (ngModelChange)="changeTaux($event)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reglage-bloc">
-                            <div class="col-8">
-                                <p>Activer la colonne "Quantité"</p>
-                            </div>
-                            <div class="col-4 reglage-col">
-                                <button type="button" [ngStyle]="{'background-color': !quantite ? '#E6EBF3' : 'white'}"
-                                    (click)="deleteColumQuantite()" class="reglage-btn btn btn-light">Non</button>
-                                <button type="button" [ngStyle]="{'background-color': quantite ? '#E6EBF3' : 'white'}"
-                                    (click)="addColumQuantite()"
-                                    class="reglage-btn btn-right btn btn-light">Oui</button>
-                            </div>
-                        </div>
-                        <div class="reglage-bloc">
-                            <div class="col-8">
-                                <p>Activer la colonne "Unité"</p>
-                            </div>
-                            <div class="col-4 reglage-col">
-                                <button type="button" [ngStyle]="{'background-color': !unite ? '#E6EBF3' : 'white'}"
-                                    (click)="deleteColumnUnite()" class="reglage-btn btn btn-light">Non</button>
-                                <button type="button" [ngStyle]="{'background-color':   unite ? '#E6EBF3' : 'white'}"
-                                    (click)="addColumnUnite()" class="reglage-btn btn-right btn btn-light">Oui</button>
-                            </div>
-                        </div>
-                        <div class="reglage-bloc">
-                            <div class="col">
-                                <p>Devise</p>
-                            </div>
-                            <div class="col reglage-col">
-                                <input size="10" [(ngModel)]="uniteValue" (ngModelChange)="changeUnitee($event)"
-                                    type="text" placeholder="{{uniteValue}}">
-                            </div>
-                        </div>
-                    </div>
+            <div class="telecharger">
+                <div class="btn-telecharger">
+                    <button type="submit" (click)="generateDevis()" class="btn btn-warning">Télécharger en Word
+                        <img src="../../../assets/icon/download.svg" alt=""> </button>
                 </div>
-                <div class="telecharger">
-                    <div class="btn-telecharger">
-                        <button type="submit" (click)="generateDevis()" class="btn btn-warning">Télécharger en Word
-                            <img src="../../../assets/icon/download.svg" alt=""> </button>
-                    </div>
-                    <div class="btn-telecharger">
-                        <button type="submit" (click)="generatePDf()" class="btn btn-warning">Télécharger en PDF
-                            <img src="../../../assets/icon/download.svg" alt=""> </button>
-                    </div>
+                <div class="btn-telecharger">
+                    <button type="submit" (click)="generatePDf()" class="btn btn-warning">Télécharger en PDF
+                        <img src="../../../assets/icon/download.svg" alt=""> </button>
                 </div>
+            </div>
 
-            </div>
         </div>
     </div>
 </div>
 <div class="groupe-btn-telecharge col-9 ">
     <div>
-        <button type="submit" (click)="generateDevis()" class="groupe-btn btn btn-warning">Télécharger mon devis en Word
+        <button type="submit" (click)="generateDevis()" class="groupe-btn btn btn-warning">Télécharger mon devis en
+            Word
             <img src="../../../assets/icon/download.svg" alt=""> </button>
     </div>
     <div>
-        <button type="submit" (click)="generatePDf()" class="groupe-btn btn btn-warning">Télécharger mon devis en PDF
+        <button type="submit" (click)="generatePDf()" class="groupe-btn btn btn-warning">Télécharger mon devis en
+            PDF
             <img src="../../../assets/icon/download.svg" alt=""> </button>
     </div>
     <div>
         <button type="submit" (click)="printDevis()" class="groupe-btn btn btn-warning">Imprimer mon devis
             <img src="../../../assets/icon/download.svg" alt=""> </button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="question">
+            <div class="question-bloc">
+                <p class="question-title">Un outil unique de devis gratuit</p>
+                <p class="question-text"><span style="font-weight: bold;">QuoteExpres a développé un outil unique et
+                        très simple pour générer un devis en quelques clics.</span>Cette interface vous permet de
+                    tout personnaliser (nom de l'entreprise, montant, prestation).
+                    Vous pouvez récupérer ensuite votre devis en Word sans laisser vos coordonnées ou recevoir une
+                    version par email si vous souhaitez enregistrer une copie.</p>
+            </div>
+            <div class="question-bloc">
+                <p class="question-title">Quand faut-il établir un devis ?</p>
+                <p class="question-text">Avant toute acquisition ou commande de service, vos clients cherchent à
+                    avoir une idée précise du
+                    prix de
+                    votre produit ou service. La divulgation des tarifs est donc essentielle. Ces tarifs seront
+                    ensuite
+                    confirmés via un bon de commande, qui enregistre également les quantités ou mesures, la
+                    disponibilité du
+                    produit, ses caractéristiques, ainsi que les frais de livraison. Bien que le bon de commande ne
+                    soit
+                    pas
+                    obligatoire, il sert de garantie pour prévenir tout litige éventuel.
+                </p>
+                <p class="question-bloc">
+                    Dans le cas où le produit ou service que vous proposez est complexe et personnalisé,
+                    l'établissement
+                    d'un
+                    devis devient impératif. Ce dernier détaille les travaux à réaliser, les délais prévus, et
+                    fournit
+                    une
+                    estimation du prix final. En signant le devis avec la mention "Bon pour travaux", vous vous
+                    engagez
+                    formellement en tant que fournisseur. De même, votre client s'engage dès lors qu'il appose sa
+                    signature sur
+                    le devis.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 <app-footer class=""></app-footer>

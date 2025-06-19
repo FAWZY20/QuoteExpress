@@ -9,6 +9,7 @@ declare let gtag: Function;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'generate_devis_frontend';
   constructor(private router: Router) {}
 
   ngOnInit() {

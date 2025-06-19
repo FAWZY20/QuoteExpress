@@ -154,6 +154,7 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 4%;
 }
 
 @media screen and (max-width: 500px){
