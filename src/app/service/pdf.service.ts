@@ -25,7 +25,7 @@ export class PdfService {
     ].filter(cell => cell !== null),
 
     ...devis.devisTab.map(item =>
-      [                
+      [
         `${item.titre}\n ${item.description}`,
         item.quantiteCell ? `${item.quantite}` : null,
         item.uniteCell ? `${item.unite}` : null,
@@ -54,13 +54,13 @@ export class PdfService {
   generatePdf(devis: Devis) {
     const documentDefinition: any = {
       content: [
-        {
+        ...(devis.logoDevis ? [{
           image: devis.logoDevis,
           width: 90,
           height: 90,
           alignment: 'left',
           margin: [0, 0, 0, 5]
-        },
+        }] : []),
         {
           columns: [
             {

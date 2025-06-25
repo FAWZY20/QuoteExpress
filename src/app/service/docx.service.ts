@@ -66,21 +66,24 @@ export class DocxService {
   }
 
   doc: any = (devis: Devis) => {
+    const imageBuffer = this.getImageBuffer();
     return new Document({
       sections: [{
         properties: {},
         children: [
-          new Paragraph({
-            children: [
-              new ImageRun({
-                data: this.getImageBuffer() as Uint8Array,
-                transformation: {
-                  width: 150,
-                  height: 150,
-                },
-              }),
-            ],
-          }),
+          ...(imageBuffer && imageBuffer.length > 0 ? [
+            new Paragraph({
+              children: [
+                new ImageRun({
+                  data: imageBuffer as Uint8Array,
+                  transformation: {
+                    width: 150,
+                    height: 150,
+                  },
+                }),
+              ],
+            })
+          ] : []),
           new Paragraph({
             children: [
               new TextRun({
