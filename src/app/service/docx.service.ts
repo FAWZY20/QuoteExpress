@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Packer, Document, Paragraph, TextRun, BorderStyle, Table, TableRow, TableCell, WidthType, VerticalAlign, TableAnchorType, RelativeHorizontalPosition, OverlapType, RelativeVerticalPosition, TableLayoutType, TableLayout } from "docx";
+import { Packer, Document, Paragraph, TextRun, BorderStyle, Table, TableRow, TableCell, WidthType, VerticalAlign, TableAnchorType, RelativeHorizontalPosition, OverlapType, RelativeVerticalPosition, TableLayoutType, TableLayout, ImageRun } from "docx";
 import { Devis } from '../modelData/devis';
 import { DevisTab } from '../modelData/devisTab';
 import jsPDF from 'jspdf';
@@ -10,11 +10,77 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 })
 export class DocxService {
 
+  base64ToUint8Array(base64: string): Uint8Array {
+    try {
+      // Nettoyer la chaîne base64 de tout caractère non valide
+      const cleanBase64 = base64.replace(/[^A-Za-z0-9+/=]/g, '');
+      const binaryString = window.atob(cleanBase64);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      return bytes;
+    } catch (error) {
+      console.error('Erreur lors de la conversion base64:', error);
+      throw new Error('Format base64 invalide');
+    }
+  }
+
+  getImageBuffer(): Uint8Array | null {
+    const imageBase64: string | null = localStorage.getItem('devis_logo');
+
+    if (!imageBase64) {
+      console.error('Aucune image trouvée dans le localStorage');
+      return null;
+    }
+
+    try {
+      // Nettoyer la base64 (enlever "data:image/png;base64," ou autre mimetype)
+      const cleanBase64 = imageBase64.replace(/^data:image\/[^;]+;base64,/, '');
+
+      // Vérifier que la chaîne base64 n'est pas vide
+      if (!cleanBase64.trim()) {
+        console.error('Chaîne base64 vide après nettoyage');
+        return null;
+      }
+
+      // Vérifier que la longueur est un multiple de 4 (ajout de padding si nécessaire)
+      const paddedBase64 = cleanBase64 + '='.repeat((4 - cleanBase64.length % 4) % 4);
+
+      const imageBuffer = this.base64ToUint8Array(paddedBase64);
+
+      // Vérifier que le buffer n'est pas vide
+      if (imageBuffer.length === 0) {
+        console.error('Buffer d\'image vide');
+        return null;
+      }
+
+      console.log('Image buffer créé avec succès, taille:', imageBuffer.length);
+      return imageBuffer;
+
+    } catch (error) {
+      console.error('Erreur lors du traitement de l\'image:', error);
+      return null;
+    }
+  }
+
   doc: any = (devis: Devis) => {
     return new Document({
       sections: [{
         properties: {},
         children: [
+          new Paragraph({
+            children: [
+              new ImageRun({
+                data: this.getImageBuffer() as Uint8Array,
+                transformation: {
+                  width: 150,
+                  height: 150,
+                },
+              }),
+            ],
+          }),
           new Paragraph({
             children: [
               new TextRun({
@@ -451,9 +517,6 @@ export class DocxService {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
     });
-  }
-  generatePdf(doc: Document) {
-    
   }
 
   infoPlus(devis: Devis): Paragraph {

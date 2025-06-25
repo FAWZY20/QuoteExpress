@@ -55,6 +55,13 @@ export class PdfService {
     const documentDefinition: any = {
       content: [
         {
+          image: devis.logoDevis,
+          width: 90,
+          height: 90,
+          alignment: 'left',
+          margin: [0, 0, 0, 5]
+        },
+        {
           columns: [
             {
               width: '50%',

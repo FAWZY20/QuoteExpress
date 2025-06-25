@@ -12,6 +12,7 @@ import { PdfService } from 'src/app/service/pdf.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  logoPreview: string | ArrayBuffer | null = null;
   downloadLink: string | null = null;
   devis: Devis;
   currentDate: Date = new Date();
@@ -36,6 +37,24 @@ export class HomeComponent {
     private router: Router,
   ) {
     this.devis = new Devis();
+  }
+
+  ngOnInit(): void {
+    localStorage.removeItem('devis_logo');
+  }
+
+
+  onLogoChange(event: Event): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.logoPreview = reader.result as string;
+        this.devis.logoDevis = this.logoPreview;
+        localStorage.setItem('devis_logo', this.logoPreview);
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   calculPrixTotalHT(donne: any) {

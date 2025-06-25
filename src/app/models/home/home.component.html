@@ -6,6 +6,12 @@
         <div id="devis" class="devis col-lg-8 col-sm-6">
             <form #devisForm="ngForm">
                 <div class="devis-info col-lg">
+                    <div class="devis-logo col-2">
+                        <input type="file" (change)="onLogoChange($event)" #fileInput hidden accept="image/*">
+
+                        <img [src]="logoPreview || 'assets/photos/default-logo.png'" (click)="fileInput.click()"
+                            style="cursor: pointer; max-width: 200px;" alt="Logo">
+                    </div>
                     <div>
                         <input type="text" placeholder="votre nom / société" name="nomSociete"
                             [(ngModel)]="devis.societe" required #societe="ngModel">

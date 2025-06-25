@@ -2,6 +2,7 @@ import { DevisTab } from "./devisTab";
 
 export class Devis{
 
+    logoDevis: string | ArrayBuffer | null = null;
     societe:string = "";
     adresseSociete:string = "";
     codePostalSociete:string = "";
