@@ -195,6 +195,12 @@ p {
 @media screen and (max-width: 425px) {
     .mobile-only {
         display: block;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30%;
+    }
+    .text-mobile-only{
+        padding: 5%;
     }
     .desktop-only {
         display: none;
