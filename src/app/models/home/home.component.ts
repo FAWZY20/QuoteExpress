@@ -50,7 +50,6 @@ export class HomeComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.logoPreview = reader.result as string;
-        this.devis.logoDevis = this.logoPreview;
         localStorage.setItem('devis_logo', this.logoPreview);
       };
       reader.readAsDataURL(file);
@@ -102,6 +101,7 @@ export class HomeComponent {
 
   generatePDf() {
     this.devis.devisTab = this.donneeTab.slice();
+    this.devis.logoDevis = localStorage.getItem('devis_logo') || '';
     this.pdfService.generatePdf(this.devis)
   }
 

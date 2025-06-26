@@ -12,6 +12,13 @@
     text-align: center;
 }
 
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .header-bloc-title {
     font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -78,3 +85,4 @@ li {
     padding-right: 30px;
     float: inline-end;
 }
+

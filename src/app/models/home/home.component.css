@@ -189,15 +189,8 @@ p {
 }
 
 @media screen and (max-width: 380px) {
-    .img-pub img {
-        height: 70px;
-        width: 70px;
-    }
-
-    .pub {
-        height: 45vw !important;
-        margin: 1%;
-        padding: 3%;
+    .desktop-only {
+        display: none;
     }
 }
 
