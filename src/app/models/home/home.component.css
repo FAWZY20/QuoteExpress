@@ -188,7 +188,7 @@ p {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 425px) {
     .desktop-only {
         display: none;
     }
