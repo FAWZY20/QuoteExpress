@@ -4,10 +4,10 @@
     </div>
     <div class="container-fluid">
         <div class="bloc-devis">
-            <div id="devis" class="devis col-lg-8 col-sm-6">
+            <div id="devis" class="devis col-lg-8 col-sm-12">
                 <form #devisForm="ngForm">
                     <div class="devis-info col-lg">
-                        <div class="devis-logo col-2">
+                        <div class="devis-logo col-lg-2 col-sm-3">
                             <input type="file" (change)="onLogoChange($event)" #fileInput hidden accept="image/*">
                             <img [src]="logoPreview || 'assets/photos/default-logo.png'" (click)="fileInput.click()"
                                 style="cursor: pointer; max-width: 200px;" alt="Logo">
@@ -164,11 +164,11 @@
                         </div>
                     </div>
                     <div class="total">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-sm-6">
                             <input type="text" placeholder="Informations complémentaires (IBAN, BIC...)" name="info"
                                 [(ngModel)]="devis.info" required #info="ngModel">
                         </div>
-                        <div class="col-lg-6 total-bloc">
+                        <div class="col-lg-6 col-sm-6 total-bloc">
                             <div class="col-lg-6 total-bloc-one">
                                 <div *ngIf="tva">
                                     <div class="total-bloc-titre">
