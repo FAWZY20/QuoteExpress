@@ -103,7 +103,7 @@
                                         <div>
                                             <div *ngIf="!donnee.affichage">
                                                 <input type="text" placeholder="TITRE" name="titre"
-                                                    [(ngModel)]="donnee.titre"><br />
+                                                    [(ngModel)]="donnee.titre" (ngModelChange)="onChangeLigne(donnee)"><br />
                                             </div>
                                             <div *ngIf="donnee.affichage">
                                                 {{donnee.titre}}
@@ -111,8 +111,8 @@
                                         </div>
                                         <div>
                                             <div *ngIf="!donnee.affichage">
-                                                <input type="text" placeholder="Description presentation"
-                                                    name="description" [(ngModel)]="donnee.description">
+                                                <input type="text" placeholder="Description presentation" 
+                                                    name="description" [(ngModel)]="donnee.description" (ngModelChange)="onChangeLigne(donnee)" >
                                             </div>
                                             <div *ngIf="donnee.affichage">
                                                 {{donnee.description}}
@@ -122,7 +122,8 @@
                                     <td *ngIf="quantite">
                                         <div *ngIf="!donnee.affichage">
                                             <input type="number" name="quantite" [(ngModel)]="donnee.quantite"
-                                                (ngModelChange)="calculPrixTotalHT(donnee)" required
+                                                (ngModelChange)="onChangeLigne(donnee)"
+                                                required
                                                 #quantite="ngModel">
                                         </div>
                                         <div *ngIf="donnee.affichage">
@@ -130,12 +131,13 @@
                                         </div>
                                     </td>
                                     <td *ngIf="unite">
-                                        <input type="text" name="quantite" placeholder="--" [(ngModel)]="donnee.unite">
+                                        <input type="text" name="quantite" placeholder="--" [(ngModel)]="donnee.unite" (ngModelChange)="onChangeLigne(donnee)"
+                                            required #unite="ngModel">
                                     </td>
                                     <td>
                                         <div *ngIf="!donnee.affichage">
                                             <input type="number" name="prixUnitaire" [(ngModel)]="donnee.prixUnitaire"
-                                                (ngModelChange)="calculPrixTotalHT(donnee)" required
+                                                (ngModelChange)="onChangeLigne(donnee)" required
                                                 #prixUnitaire="ngModel"> {{uniteValue}}
                                         </div>
                                         <div *ngIf="donnee.affichage">
@@ -143,7 +145,7 @@
                                         </div>
                                     </td>
                                     <td *ngIf="tvaLigne">
-                                        <input type="number" name="tva" [(ngModel)]="donnee.tva" required
+                                        <input type="number" name="tva" [(ngModel)]="donnee.tva" (ngModelChange)="onChangeLigne(donnee)" required
                                             #tva="ngModel">%
                                     </td>
                                     <td class="prixTotal">
@@ -200,7 +202,7 @@
                                     </div>
                                 </div>
                                 <div class="total-bloc-prix">
-                                    <p>{{CalculTotalTTC()}} {{uniteValue}}</p>
+                                    <p>{{calculTotalTTC()}} {{uniteValue}}</p>
                                 </div>
                             </div>
                         </div>

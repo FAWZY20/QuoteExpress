@@ -35,12 +35,14 @@ export class HomeComponent {
     private pdfService: PdfService,
     private docxService: DocxService,
     private router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     this.devis = new Devis();
   }
 
   ngOnInit(): void {
     localStorage.removeItem('devis_logo');
+     this.mettreAJourTotaux(); // 👈
   }
 
 
@@ -87,10 +89,27 @@ export class HomeComponent {
     return this.tvaTT;
   }
 
-  CalculTotalTTC() {
+  calculTotalTTC() {
+    this.calculPrixTotalDevisHT
     this.totalTTC = this.totalHt + this.totalTva;
     this.devis.totalTtc = this.totalTTC;
     return this.totalTTC;
+  }
+
+  mettreAJourTotaux(): void {
+    this.calculPrixTotalDevisHT();
+    if (this.tva && this.tvaTaux > 0) {
+      this.calculTva();
+    } else {
+      this.totalTva = 0;
+    }
+    this.calculTotalTTC();
+    this.cdr.detectChanges(); // 👈 Évite NG0100
+  }
+
+  onChangeLigne(ligne: DevisTab): void {
+    this.calculPrixTotalHT(ligne);
+    this.mettreAJourTotaux();
   }
 
   generateDevis(): void {
@@ -172,6 +191,7 @@ export class HomeComponent {
 
   deleteTva() {
     this.tva = false;
+    this.totalTva = 0;
   }
 
 
