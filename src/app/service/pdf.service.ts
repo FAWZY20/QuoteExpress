@@ -50,6 +50,27 @@ export class PdfService {
     }
   }
 
+  bodyTableTotal = (devis: Devis) => {
+    const body = [];
+
+    if (devis.tvaTotal > 0) {
+      body.push([
+        { text: 'Total HT', style: 'titleTabTotal', fillColor: '#E7E6E6' },
+        { text: `${devis.totalHt} ${devis.moneyUnite}`, style: 'valueTotalTab' }
+      ]);
+      body.push([
+        { text: `TVA (${devis.tva}%)`, style: 'titleTabTotal', fillColor: '#E7E6E6' },
+        { text: `${devis.tvaTotal} ${devis.moneyUnite}`, style: 'valueTotalTab' }
+      ]);
+    }
+
+    body.push([
+      { text: 'Total TTC', style: 'titleTabTotal', fillColor: '#E7E6E6' },
+      { text: `${devis.totalTtc} ${devis.moneyUnite}`, style: 'valueTotalTab' }
+    ]);
+
+    return body;
+  };
 
   generatePdf(devis: Devis) {
     const documentDefinition: any = {
@@ -126,20 +147,7 @@ export class PdfService {
             },
             {
               table: {
-                body: [
-                  [
-                    { text: 'Total HT', style: 'titleTabTotal', fillColor: '#E7E6E6' },
-                    { text: `${devis.totalHt} ${devis.moneyUnite}`, style: 'valueTotalTab' }
-                  ],
-                  [
-                    { text: 'TVA (' + `${devis.tva}` + '%)', style: 'titleTabTotal', fillColor: '#E7E6E6' },
-                    { text: `${devis.tvaTotal} ${devis.moneyUnite}`, style: 'valueTotalTab' }
-                  ],
-                  [
-                    { text: 'Total TTC', style: 'titleTabTotal', fillColor: '#E7E6E6' },
-                    { text: `${devis.totalTtc} ${devis.moneyUnite} `, style: 'valueTotalTab' }
-                  ]
-                ]
+                body: this.bodyTableTotal(devis),
               },
               style: 'tabTotal'
             }

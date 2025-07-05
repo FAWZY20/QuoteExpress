@@ -115,7 +115,7 @@
             </div>
             <div class="col-lg-6 total-bloc">
                 <div class="col-lg-6 total-bloc-one">
-                    <div>
+                    <div *ngIf="devisJson.tvaTotal > 0">
                         <div class="total-bloc-titre">
                             <p>Total HT</p>
                         </div>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 total-bloc-two">
-                    <div>
+                    <div *ngIf="devisJson.tvaTotal > 0">
                         <div class="total-bloc-prix">
                             <p>{{devisJson.totalHt}} {{devisJson.moneyUnite}}</p>
                         </div>

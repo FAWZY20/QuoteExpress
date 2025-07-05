@@ -42,7 +42,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     localStorage.removeItem('devis_logo');
-     this.mettreAJourTotaux(); // 👈
+    this.mettreAJourTotaux(); // 👈
   }
 
 
@@ -192,6 +192,7 @@ export class HomeComponent {
   deleteTva() {
     this.tva = false;
     this.totalTva = 0;
+    this.devis.tvaTotal = 0;
   }
 
 
